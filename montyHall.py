@@ -73,10 +73,6 @@ def play_monty_hall(choice):
 
         # Displaying the player's prize
     print('You chose ' + answer + ', you got', prizes[result].upper())
-    if result == "car":
-        print("You WON bro :)\n")
-    else:
-        print("Aww, you lost (weakling)\n")
 
 
 # Monte_Carlo Simulation :
