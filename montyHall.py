@@ -17,18 +17,19 @@ stick_win_probability = []
 plt.axhline(y=0.66666, color='r', linestyle='-')
 plt.axhline(y=0.33333, color='g', linestyle='-')
 
-
+# inaayos ko pa
 def choiceInput():
     while True:
         try:
             global choice
-            print("1 2 3 ONLY")
-            choice = int(input('Which door do you want to choose? (1,2,3): '))
-            if choice <= 3:
-                print("\nYou have chosen door number " + str(choice))
+            choice = int(input("\nWhich door do you want to choose? (1,2,3): "))
+            if choice == 1 or choice == 2 or choice == 3:
+                print("You have chosen door number " + str(choice))
                 break
+            else:
+                print("\nError: 1,2 or 3 only. Please try again.")
         except ValueError:
-            print("1, 2 and 3 only\n")
+            print('\nError: 1,2 or 3 only. Please try again.')
 
 
 def play_monty_hall(choice):
@@ -73,7 +74,8 @@ def play_monty_hall(choice):
 
         # Displaying the player's prize
     print('You chose ' + answer + ', you got', prizes[result].upper())
-
+    if result == "car":
+        print("You WON bro :)\n")
 
 # Monte_Carlo Simulation :
 def monte_carlo():
@@ -121,7 +123,7 @@ def monte_carlo():
 # Playing game
 # displaying the name of game ;)
 print(
-    '________            _______    _____________   ______ 3   ______   _______________   _______      _______                                    |')
+    '________            _______    _____________   ______     ______   _______________   _______      _______                                    |')
 print(
     '||     |           ||     |    ||          |   ||     | |     |   ||            |   ||    |      ||    |                                    |')
 print(
