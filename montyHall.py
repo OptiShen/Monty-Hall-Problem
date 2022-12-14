@@ -60,7 +60,6 @@ def play_monty_hall(choice):
 
     while True:
         try:
-            print("STAY or SWITCH only")
             print('Now, do you want to switch to door number %d or stay? [switch/stay]: ' % (switching_door))
             answer = str(input())
             if answer.lower() == 'switch':
@@ -69,6 +68,8 @@ def play_monty_hall(choice):
             elif answer.lower() == 'stay':
                 result = choice - 1
                 break
+            else:
+                print("Please choose between switch or stay only.\n")
         except ValueError:
             print("Please choose between switch or stay only.\n")
 
@@ -178,10 +179,23 @@ print('||  ||   ||  ||    ||  ||   ||  ||    ||  ||   ||  ||')
 print('||  --   --  ||    ||  --   --  ||    ||  --   --  ||')
 print('||___________||    ||___________||    ||___________||')
 print('')
-choiceInput()
-play_monty_hall(choice)
 
 
-
-# Calling the function :
-monte_carlo()
+while True:
+            try:
+                choiceInput()
+                play_monty_hall(choice)
+                monte_carlo()
+                play_again = input("Do you want to play again? [yes/no] ")
+                if play_again.lower() == "yes":
+                    print("Restarting..")
+                    time.sleep(1)
+                elif play_again.lower() == "no":
+                    print("Goodbye!")
+                    break
+                else:
+                    print("Wrong input, stopping the program.")
+                    time.sleep(1)
+                    break
+            except ValueError:
+                print("Yes or No only.")
